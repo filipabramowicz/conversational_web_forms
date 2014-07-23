@@ -10,7 +10,7 @@
 
 		$(document).ready(function() {
 			var timeout;
-			$(document).on("keyup", "input[type=email]" function() {
+			$(document).on("keyup", "input[type=email]", function() {
 				clearTimeout(timeout);
 				var input = $(this);
 				timeout = setTimeout(function() {
