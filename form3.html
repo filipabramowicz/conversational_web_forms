@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style2.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			var timeout;
+			$(document).on("keyup", "input[type=email]" function() {
+				clearTimeout(timeout);
+				var input = $(this);
+				timeout = setTimeout(function() {
+					if (input.is(":valid")){
+						var email = input.val();
+						$.getJSON("/check_for_user", {email : email}, function(data){
+							if (data.user_exists) {
+								input.parents("form").attr("action","/login")
+								input.addClass("user_exists");
+								$("input[type=password]").filter("[name*='login']").each(function(i, el) {
+									el.required = true;
+								})
+							} else {
+								input.parents("form").attr("action","/sign_up")	
+								input.addClass("user_not_exists");
+								$("input[type=password]").filter("[name*='signup']").each(function(i, el) {
+									el.required = true;
+								})								
+							}
+						});
+					}
+				})
+			})
+		});
+
+	</script>
+</head>
+<body>
+	<div class="login">
+		<h3>Log In</h3>
+		<form action="">
+			<input type="email">
+			<input name="login_password" type="password">
+			<input name="signup_password" type="password">
+			<input name="signup_password_confirm" type="password">
+		</form>
+	</div>
+
+</body>
+</html>
