@@ -20,16 +20,20 @@ h3 {
 }
 
 input[type=password],
-input[type=email]{
+input[type=email] {
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: 8px;
+	/* box-sizing defines if padding nad border should affect width and height of element */
+	/* border-box - padding and border do not affect the width and height of element */
+	/* content-box - padding and border affect the width and height of element */
 	box-sizing: border-box;
 }
 
 input[type=password]:focus,
-input[type=email]:focus{
+input[type=email]:focus {
 	border: 1px solid #888;
+	/* outline is a line that is drawn arounf elements (outside of borders) to make the element to stand-out */
 	outline: none;
 }
 
@@ -47,6 +51,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
 	background-color: #DB8F2A;
+	/* cursor specifies the type of cursor to be dispalyed when pointing on an element */
 	cursor: pointer;
 }
 
@@ -56,14 +61,20 @@ input {
 
 input[type=password],
 input[type=submit]{
+	/* overflow property specifies what happens if content overflows an element's box */
 	overflow: hidden;
+	
+	/* clip property in CSS allows you to specify a specific region of an element to display
+	   rather than showing the complete area */
 	clip: rect(0 0 0 0);
+	
 	height: 1px;
 	width: 1px;
 	margin: -1px;
 	padding: 0;
 	border: 0;
 	opacity: 0;
+	
 	transition: opacity 0.4s, height .4s, padding-top .4s, padding-bottom .4s;
 }
 
@@ -86,5 +97,4 @@ input[type=password]:valid + input[type=submit]{
 	clip: none;
 	margin: 12px auto;
 	padding: 8px;
-
 }
