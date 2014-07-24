@@ -24,12 +24,16 @@ input[type=email]{
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: 8px;
+	/* box-sizing defines if padding nad border should affect width and height of element */
+	/* border-box - padding and border do not affect the width and height of element */
+	/* content-box - padding and border affect the width and height of element */	
 	box-sizing: border-box;
 }
 
 input[type=password]:focus,
 input[type=email]:focus{
 	border: 1px solid #888;
+	/* outline is a line that is drawn arounf elements (outside of borders) to make the element to stand-out */	
 	outline: none;
 }
 
@@ -47,6 +51,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
 	background-color: #DB8F2A;
+	/* cursor specifies the type of cursor to be dispalyed when pointing on an element */	
 	cursor: pointer;
 }
 
@@ -56,15 +61,27 @@ input {
 
 input[type=password],
 input[type=submit]{
+	/* applies graphical operation to element */
+	
 	-webkit-filter: blur(1px);
+	
+	/* transform property applies a 2D or 3D transformation to an element.
+	   It allows to rotate, scale, move, skew, etc */
 	transform: scale(0.9);
+	
 	opacity: .4;
 	transition: all .4s;
+	
+	/* pointer-events property allows to control whether an element can be the target
+	   for the pointing device events */
 	pointer-events: none;
 }
 
 input[type=email]:valid + input[type=password],
 input[type=password]:valid + input[type=submit]{
+	/* auto is the same as all. All means an element may be the target element for
+	   pointer events whenever the pointer is inside the CSS border edge
+	   of the element */
 	pointer-events: auto;
 	-webkit-filter: none;
 	transform: scale(1);

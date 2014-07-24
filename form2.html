@@ -9,10 +9,15 @@
 	<script type="text/javascript">
 
 		$(document).ready(function() {
+			// values of all inputs are read into inputs variable
 			var inputs = $(":input");
+			// when "keypress" or "input" events are emitted
 			$(document).on("keypress", "input", function() {
 				inputs.each(function(i, el){
 					var $el = $(el);
+					// each input is checked if it has pseudoclass ":valid"
+					// if yes then disability of next field is turn off
+					// if yes then disability of next field is turn on 
 					if ($el.is(":valid")){
 						$el.next("input")[0].disabled=false;
 					} else {
