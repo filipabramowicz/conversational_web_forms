@@ -13,6 +13,7 @@
 			$(document).on("keyup", "input[type=email]", function() {
 				clearTimeout(timeout);
 				var input = $(this);
+				// timeout is set here but why?
 				timeout = setTimeout(function() {
 					if (input.is(":valid")){
 						var email = input.val();
